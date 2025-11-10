@@ -2,6 +2,6 @@ this is my first roblox script, i hope to add more visual and combat features in
 checkout my discord server for changelogs and more information : https://discord.gg/skidding  
 
 ## loadstring
-```lua
+```luau
 loadstring(game:HttpGet("https://raw.githubusercontent.com/kitodoescode/eternal/refs/heads/main/source.lua"))()
 ```
