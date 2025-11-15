@@ -1,3 +1,9 @@
+-- stop if already running, prevents lag ofc.
+if _G.eternal_esp_loaded then
+    return
+end
+_G.eternal_esp_loaded = true
+
 -- custom version of ui lib
 local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/kitodoescode/Bracket/main/BracketV34.lua"))()
 
@@ -69,7 +75,11 @@ local all_bones_r15 = {
     "LeftHand"
 }
 
-local window = ui:Window({Name = "eternal | @kitodoescode"})
+-- check if window already exists
+if not _G.eternal_window then
+    _G.eternal_window = ui:Window({Name = "eternal | @kitodoescode"})
+end
+local window = _G.eternal_window
 do
     local watermark =
         window:Watermark(
