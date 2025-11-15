@@ -1,5 +1,6 @@
 -- stop if already running, prevents lag ofc.
 if _G.eternal_esp_loaded then
+        print("eternal is already open!")
     return
 end
 _G.eternal_esp_loaded = true
