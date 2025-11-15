@@ -1,3 +1,10 @@
+-- stop if already running, prevents lag ofc.
+if _G.eternal_esp_loaded then
+        print("eternal is already open!")
+    return
+end
+_G.eternal_esp_loaded = true
+
 -- custom version of ui lib
 local ui = loadstring(game:HttpGet("https://raw.githubusercontent.com/kitodoescode/Bracket/main/BracketV34.lua"))()
 
@@ -69,7 +76,11 @@ local all_bones_r15 = {
     "LeftHand"
 }
 
-local window = ui:Window({Name = "eternal | @kitodoescode"})
+-- check if window already exists
+if not _G.eternal_window then
+    _G.eternal_window = ui:Window({Name = "eternal | @kitodoescode | " .. date})
+end
+local window = _G.eternal_window
 do
     local watermark =
         window:Watermark(
@@ -88,6 +99,7 @@ do
             if curr - last >= 1 then
                 date = os.date("%d-%m-%y")
                 watermark.Title = "eternal | @kitodoescode | " .. date
+                window.Name = "eternal | @kitodoescode | " .. date
             end
         end
     )
